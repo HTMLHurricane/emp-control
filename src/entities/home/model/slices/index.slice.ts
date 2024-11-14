@@ -3,6 +3,7 @@ import { IHomeSliceInitState } from '../types';
 import dayjs from 'dayjs';
 
 const initialState: IHomeSliceInitState = {
+    collapsed: false,
     homeDate: dayjs(),
     homeMonthData: dayjs(),
     branch: undefined,
@@ -39,6 +40,9 @@ const HomeSlice = createSlice({
             { payload }: PayloadAction<number | undefined>,
         ) {
             state.attendanceBranch = payload;
+        },
+        setCollapsed(state, { payload }: PayloadAction<boolean>) {
+            state.collapsed = payload;
         },
     },
 });

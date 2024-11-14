@@ -55,7 +55,7 @@ const Line = () => {
         );
     } else {
         return (
-            <Card className="flex-col w-full max-w-[800px] min-h-[450px] text-center">
+            <Card className="flex-col w-full min-h-[450px] text-center">
                 <span className="text-[16px] text-[#645e5e] font-semibold whitespace-nowrap">
                     Общая активность за {homeDate.format('YYYY-MM-DD')}
                 </span>

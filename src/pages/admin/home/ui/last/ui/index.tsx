@@ -32,7 +32,7 @@ const Last = () => {
                             },
                         }}
                         onClick={(e) => e.stopPropagation()}
-                        width={50}
+                        width={100}
                         src={rec.user_image[0]}
                     />
                     {name}

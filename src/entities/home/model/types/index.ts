@@ -58,6 +58,7 @@ export interface IMonth {
 }
 
 export interface IHomeSliceInitState {
+    collapsed: boolean;
     homeDate: dayjs.Dayjs;
     homeMonthData: dayjs.Dayjs;
     branch: number | undefined;
