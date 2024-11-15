@@ -1,7 +1,7 @@
-import { Card, Spin } from 'antd';
+import { Spin } from 'antd';
 import { DoughnutChart } from './chart';
 import { useGetDoughnutDataQuery } from '@/entities/home/api';
-import { useAppSelector } from '@/shared';
+import { useAppSelector, Card } from '@/shared';
 
 const Doughnut = () => {
     const { homeDate, branch } = useAppSelector();
@@ -18,7 +18,7 @@ const Doughnut = () => {
         );
     } else {
         return (
-            <Card className="min-w-[400px]">
+            <Card className="xl:max-w-[400px]">
                 <DoughnutChart
                     datasets={[
                         data?.notComers ?? 0,

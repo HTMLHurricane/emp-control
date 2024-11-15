@@ -1,20 +1,19 @@
-import { FlexBox } from '@/shared';
+import { NotComeModal, LateModal, ComeModal } from '@/entities/home/model';
 import { Doughnut } from './doughnut';
-import { Last } from './last/ui';
-import { Line } from './line/ui';
-import { ComeModal, LateModal, NotComeModal } from '@/entities/home/model';
 import { Header } from './header';
+import { Last } from './last';
+import { Line } from './line';
 
 const AdminHomePage = () => (
     <>
-        <FlexBox cls="flex-col gap-10">
+        <div className="flex-col gap-10">
             <Header />
-            <FlexBox cls="items-start">
+            <div className="flex flex-col xl:flex-row">
                 <Doughnut />
                 <Line />
-            </FlexBox>
+            </div>
             <Last />
-        </FlexBox>
+        </div>
         <NotComeModal />
         <LateModal />
         <ComeModal />

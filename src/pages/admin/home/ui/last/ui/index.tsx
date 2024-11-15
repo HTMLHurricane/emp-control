@@ -1,7 +1,8 @@
 import { useGetLastDataQuery } from '@/entities/home/api';
 import { ILast } from '@/entities/home/model';
-import { FlexBox, useAppSelector } from '@/shared';
-import { Card, Image, Spin, Table, TableProps, Tag } from 'antd';
+import { useAppSelector, Card, Title } from '@/shared';
+import { columnResponseText } from '@/shared/const/css';
+import { Image, Spin, Table, TableProps, Tag } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +21,7 @@ const Last = () => {
             dataIndex: 'name',
             key: 'name',
             render: (name, rec) => (
-                <FlexBox>
+                <div className="flex items-center">
                     <Image
                         preview={{
                             onVisibleChange(value) {
@@ -32,15 +33,27 @@ const Last = () => {
                             },
                         }}
                         onClick={(e) => e.stopPropagation()}
-                        width={100}
                         src={rec.user_image[0]}
+                        className="hidden lg:block lg:w-[100px]"
                     />
-                    {name}
-                </FlexBox>
+                    <span className="px-0 lg:px-2">{name}</span>
+                </div>
             ),
+            className: `${columnResponseText}`,
         },
-        { title: 'Должность', dataIndex: 'position', key: 'position' },
-        { title: 'Филиал', dataIndex: 'branch', key: 'branch' },
+        {
+            title: 'Должность',
+            dataIndex: 'position',
+            key: 'position',
+            responsive: ['md', 'lg', 'xl'],
+            className: `${columnResponseText}`,
+        },
+        {
+            title: 'Филиал',
+            dataIndex: 'branch',
+            key: 'branch',
+            className: `${columnResponseText}`,
+        },
         {
             title: 'Статус',
             dataIndex: 'score',
@@ -48,12 +61,15 @@ const Last = () => {
             render: (score) => (
                 <Tag color={score > 60 ? 'green' : 'red'}>{score}%</Tag>
             ),
+            responsive: ['md', 'lg', 'xl'],
+            className: `${columnResponseText}`,
         },
         {
             title: 'Время',
             dataIndex: 'time',
             key: 'time',
             render: (time) => time.slice(0, 5),
+            className: `${columnResponseText} w-[50px]`,
         },
         {
             title: 'Изображение',
@@ -70,12 +86,13 @@ const Last = () => {
                             }
                         },
                     }}
-                    width={100}
                     onClick={(e) => e.stopPropagation()}
                     src={rec.attendance_image[0]}
                     alt="photo"
+                    className="w-[100px]"
                 />
             ),
+            className: `${columnResponseText}`,
         },
     ];
 
@@ -88,9 +105,9 @@ const Last = () => {
     } else {
         return (
             <Card className="flex-col flex-1 min-h-[450px] text-center">
-                <span className="text-[16px] text-[#645e5e] font-semibold whitespace-nowrap">
+                <Title>
                     Последняя активность за {homeDate.format('YYYY-MM-DD')}
-                </span>
+                </Title>
                 <Table
                     scroll={{ y: 450 }}
                     dataSource={data?.data}
@@ -104,7 +121,7 @@ const Last = () => {
                         },
                         className: 'hover:cursor-pointer',
                     })}
-                    className="mt-4"
+                    className="mt-4 w-full sm:w-full md:w-auto lg:w-auto xl:w-auto"
                     pagination={false}
                 />
             </Card>

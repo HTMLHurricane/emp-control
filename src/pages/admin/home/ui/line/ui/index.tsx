@@ -1,12 +1,13 @@
 import { useGetLineDataQuery } from '@/entities/home/api';
-import { Card, Spin, Table, TableProps, Tag } from 'antd';
+import { Spin, Table, TableProps, Tag } from 'antd';
 import { useState } from 'react';
-import { useAppSelector } from '@/shared';
+import { useAppSelector, Card, Title } from '@/shared';
 import { ILine } from '@/entities/home/model';
 import { useNavigate } from 'react-router-dom';
+import { columnResponseText } from '@/shared/const/css';
 
 const Line = () => {
-    const { homeDate, branch } = useAppSelector();
+    const { homeDate, branch, collapsed } = useAppSelector();
 
     const [isPreviewOpened] = useState(false);
     const navigate = useNavigate();
@@ -16,16 +17,24 @@ const Line = () => {
     });
 
     const columns: TableProps<ILine>['columns'] = [
-        { title: 'ФИО', dataIndex: 'name', width: 150 },
+        {
+            title: 'ФИО',
+            dataIndex: 'name',
+            className: `${columnResponseText} w-[100px] md:w-[200px]`,
+        },
         {
             title: 'Должность',
             dataIndex: 'position.name',
             render: (_, record) => <Tag>{record.position.name}</Tag>,
+            responsive: ['md', 'lg', 'xl'],
+            className: `${columnResponseText}`,
         },
         {
             title: 'Филиал',
             dataIndex: 'branch.name',
             render: (_, record) => <Tag>{record.branch.name}</Tag>,
+            responsive: ['md', 'lg', 'xl'],
+            className: `${columnResponseText}`,
         },
         {
             title: 'Пришел',
@@ -35,6 +44,7 @@ const Line = () => {
                     {record.attendance.come}
                 </Tag>
             ),
+            className: `${columnResponseText}`,
         },
         {
             title: 'Опоздал',
@@ -44,6 +54,7 @@ const Line = () => {
                     {record.attendance.late}
                 </Tag>
             ),
+            className: `${columnResponseText}`,
         },
     ];
 
@@ -55,16 +66,21 @@ const Line = () => {
         );
     } else {
         return (
-            <Card className="flex-col w-full min-h-[450px] text-center">
-                <span className="text-[16px] text-[#645e5e] font-semibold whitespace-nowrap">
+            <Card
+                className={`text-center ${
+                    collapsed ? '' : 'xl:w-[800px]'
+                }`}
+            >
+                <Title>
                     Общая активность за {homeDate.format('YYYY-MM-DD')}
-                </span>
+                </Title>
+
                 <Table
                     dataSource={data?.data}
                     rowKey={(row) => row.id}
                     size="small"
                     columns={columns}
-                    scroll={{ y: 300 }}
+                    scroll={{ x: 'max-content', y: 300 }}
                     pagination={false}
                     onRow={(rec) => ({
                         onClick: () => {
@@ -74,7 +90,7 @@ const Line = () => {
                         },
                         className: 'hover:cursor-pointer',
                     })}
-                    className="mt-4"
+                    className="mt-4 w-full sm:w-full md:w-auto lg:w-auto xl:w-auto"
                 />
             </Card>
         );

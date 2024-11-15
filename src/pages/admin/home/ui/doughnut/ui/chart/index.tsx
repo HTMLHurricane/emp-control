@@ -40,7 +40,7 @@ const DoughnutChart: FC<IDoughnutChartProps> = ({ datasets, date, total }) => {
     };
 
     return (
-        <div className="flex relative items-center flex-col justify-between gap-8 w-full">
+        <div className="gap-8 flex relative items-center flex-col justify-between w-full">
             <Doughnut
                 ref={chartRef}
                 data={data}

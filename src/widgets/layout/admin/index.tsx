@@ -23,10 +23,7 @@ const items: MenuItem[] = [
             { key: '5', label: <Link to="/employees">Сотрудники</Link> },
             { key: '6', label: <Link to="/branches">Филиалы</Link> },
             { key: '7', label: <Link to="/roles">Роли</Link> },
-            {
-                key: '8',
-                label: <Link to="/schedules">Рабочий график</Link>,
-            },
+            { key: '8', label: <Link to="/schedules">Рабочий график</Link> },
         ],
     },
     {
@@ -46,12 +43,15 @@ const AdminLayout: FC = () => {
     };
 
     return (
-        <Layout className="relative min-h-screen">
+        <Layout className="relative h-screen overflow-hidden">
+            {/* Sidebar - Responsive width based on screen size */}
             <Sider
                 theme="dark"
-                width={collapsed ? 80 : '18%'}
-                className="my-4 ml-4 rounded-lg h-[96%] !fixed z-50"
+                width={250}
+                collapsedWidth={50}
                 collapsed={collapsed}
+                breakpoint="lg"
+                className="fixed h-full sm:w-16 md:w-20 lg:w-60 xl:w-72"
             >
                 <div className="text-center text-white text-2xl py-5">
                     {collapsed ? 'A' : 'AralHUB'}
@@ -70,13 +70,11 @@ const AdminLayout: FC = () => {
                     {collapsed ? <FaArrowRight /> : <FaArrowLeft />}
                 </Button>
             </Sider>
+
+            {/* Main Layout Content - Adjust margin based on sidebar visibility and screen size */}
             <Layout>
-                <Content
-                    className={`p-4 fixed ${
-                        collapsed ? 'w-[93%]' : 'w-[81%]'
-                    } h-[96%] right-1 `}
-                >
-                    <div className="bg-white p-5 rounded-lg h-[104.6%] shadow-sm overflow-y-auto overflow-x-hidden custom-scroll relative">
+                <Content className="h-screen overflow-hidden">
+                    <div className="p-2 h-full overflow-y-auto custom-scroll xl:p-5 bg-white rounded-lg shadow-sm">
                         <Outlet />
                     </div>
                 </Content>

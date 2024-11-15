@@ -3,7 +3,6 @@ import { memo, ReactNode } from 'react';
 export const Title = memo(
     ({
         children,
-        size,
         className,
     }: {
         children: ReactNode;
@@ -12,9 +11,7 @@ export const Title = memo(
     }) => {
         return (
             <span
-                className={`${
-                    size === 'xl' ? 'text-[16px]' : 'text-[16px]'
-                }  text-[#645e5e] font-semibold whitespace-nowrap ${className}`}
+                className={`text-[12px] md:text-[16px] text-[#645e5e] font-semibold whitespace-nowrap ${className}`}
             >
                 {children}
             </span>

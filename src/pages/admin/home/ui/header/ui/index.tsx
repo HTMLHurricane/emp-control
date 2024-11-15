@@ -1,5 +1,5 @@
 import { useGetAllBranchesQuery } from '@/entities/branch/api';
-import { FlexBox, useAppActions } from '@/shared';
+import { useAppActions } from '@/shared';
 import { DatePicker, DatePickerProps, Select, SelectProps } from 'antd';
 import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
@@ -27,23 +27,24 @@ export const Header = () => {
     }, [branchesSuccess]);
 
     return (
-        <FlexBox cls="justify-between">
+        <div className="flex justify-between items-center md:px-4">
             <h2>Главная</h2>
-            <div>
+            <div className="">
                 <DatePicker
                     allowClear={false}
                     onChange={onChange}
-                    className="w-[200px] mr-2"
+                    placeholder="месяц"
+                    className="w-[100px] mr-2"
                 />
                 <Select
                     options={branchOptions}
-                    placeholder="Выберите филиал"
+                    placeholder="филиал"
                     onSelect={(e) => setBranch(e)}
                     allowClear
                     onClear={() => setBranch()}
-                    className="w-[200px]"
+                    className="w-[100px]"
                 />
             </div>
-        </FlexBox>
+        </div>
     );
 };
