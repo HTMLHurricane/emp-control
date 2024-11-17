@@ -7,6 +7,7 @@ import {
   useAppActions,
   useAppSelector,
 } from '@/shared'
+import { columnResponseText } from '@/shared/const/css'
 import { Table, TableProps, message } from 'antd'
 import { useEffect } from 'react'
 
@@ -33,6 +34,7 @@ const AdminRolePageTable = () => {
     {
       title: 'Название',
       dataIndex: 'name',
+      className: `${columnResponseText}`
     },
     {
       title: '',
@@ -47,6 +49,7 @@ const AdminRolePageTable = () => {
           )}
         </FlexBox>
       ),
+      className: `${columnResponseText}`
     },
   ]
 

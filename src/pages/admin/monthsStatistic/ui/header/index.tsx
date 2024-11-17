@@ -1,4 +1,4 @@
-import { FlexBox, useAppActions } from '@/shared';
+import { useAppActions } from '@/shared';
 import { DatePicker, DatePickerProps } from 'antd';
 import dayjs from 'dayjs';
 import { FaArrowLeft } from 'react-icons/fa6';
@@ -13,7 +13,7 @@ export const Header = () => {
     const navigate = useNavigate();
 
     return (
-        <FlexBox cls="justify-between">
+        <div className="flex justify-between items-center">
             <h2>
                 <FaArrowLeft
                     size={15}
@@ -27,11 +27,12 @@ export const Header = () => {
                     <DatePicker
                         allowClear={false}
                         onChange={onChange}
+                        placeholder="Выберите месяц"
                         picker="month"
-                        className="w-[200px] mr-2"
+                        className="w-[170px] mr-2"
                     />
                 </div>
             </div>
-        </FlexBox>
+        </div>
     );
 };

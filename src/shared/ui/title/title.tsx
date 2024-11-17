@@ -11,7 +11,7 @@ export const Title = memo(
     }) => {
         return (
             <span
-                className={`text-[12px] md:text-[16px] text-[#645e5e] font-semibold whitespace-nowrap ${className}`}
+                className={`text-[14px] md:text-[16px] text-[#645e5e] font-semibold whitespace-nowrap ${className}`}
             >
                 {children}
             </span>

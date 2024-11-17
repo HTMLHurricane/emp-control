@@ -66,15 +66,10 @@ const Line = () => {
         );
     } else {
         return (
-            <Card
-                className={`text-center ${
-                    collapsed ? '' : 'xl:w-[800px]'
-                }`}
-            >
+            <Card className={`text-center ${collapsed ? '' : 'xl:w-[800px]'}`}>
                 <Title>
                     Общая активность за {homeDate.format('YYYY-MM-DD')}
                 </Title>
-
                 <Table
                     dataSource={data?.data}
                     rowKey={(row) => row.id}

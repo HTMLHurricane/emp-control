@@ -1,6 +1,5 @@
 import { PeakAttendance } from '@/entities/count/model/types';
-import { Title } from '@/shared';
-import { Card } from 'antd';
+import { Title, Card } from '@/shared';
 import React from 'react';
 import {
     LineChart,
@@ -79,7 +78,7 @@ export const PeakHours: React.FC<PeakHoursProps> = ({ data, day }) => {
         <Card
             title={<Title>Пиковое время клиентов за {day}</Title>}
             style={{ height: 500 }}
-            className="text-center w-[100%] my-5"
+            className="text-center my-5"
         >
             <ResponsiveContainer width="100%" height={400}>
                 <LineChart

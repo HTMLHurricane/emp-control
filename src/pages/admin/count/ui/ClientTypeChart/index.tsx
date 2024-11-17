@@ -1,11 +1,10 @@
-import { Card } from 'antd';
 import { memo } from 'react';
-import { Title } from '@/shared';
+import { Title, Card } from '@/shared';
 import { ClientType } from './ui';
 
 export const ClientTypeChart = memo(({ data }: { data: number[] }) => {
     return (
-        <Card className="w-[700px] text-center " title={<Title>Клиенты</Title>}>
+        <Card className="xl:w-2/3 text-center " title={<Title>Клиенты</Title>}>
             <div className="flex flex-col justify-center items-center">
                 <ClientType data={data} />
                 <div className="flex items-center space-x-4 justify-center pt-5">

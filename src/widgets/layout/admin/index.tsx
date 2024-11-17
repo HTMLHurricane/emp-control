@@ -16,6 +16,7 @@ const items: MenuItem[] = [
         label: <Link to="/">Главная</Link>,
         icon: <FaBuildingUser />,
         children: [
+            { key: '14', label: <Link to="/">Главная</Link> },
             {
                 key: '13',
                 label: <Link to="/monthStatistic">Месячная статистика</Link>,
@@ -51,10 +52,10 @@ const AdminLayout: FC = () => {
                 collapsedWidth={50}
                 collapsed={collapsed}
                 breakpoint="lg"
-                className="fixed h-full sm:w-16 md:w-20 lg:w-60 xl:w-72"
+                className="fixed h-full sm:w-16 md:w-20 lg:w-60 xl:w-72 z-50"
             >
                 <div className="text-center text-white text-2xl py-5">
-                    {collapsed ? 'A' : 'AralHUB'}
+                    <Link to="/">{collapsed ? 'A' : 'AralHUB'}</Link>
                 </div>
                 <Menu
                     defaultSelectedKeys={['1']}
@@ -73,7 +74,11 @@ const AdminLayout: FC = () => {
 
             {/* Main Layout Content - Adjust margin based on sidebar visibility and screen size */}
             <Layout>
-                <Content className="h-screen overflow-hidden">
+                <Content
+                    className={`fixed md:relative ${
+                        collapsed ? 'w-[380px]' : 'left-0'
+                    } md:w-full h-screen overflow-hidden`}
+                >
                     <div className="p-2 h-full overflow-y-auto custom-scroll xl:p-5 bg-white rounded-lg shadow-sm">
                         <Outlet />
                     </div>

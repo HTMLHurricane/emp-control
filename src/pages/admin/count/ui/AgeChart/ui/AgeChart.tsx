@@ -1,5 +1,4 @@
-import { Title } from '@/shared';
-import { Card } from 'antd';
+import { Title, Card } from '@/shared';
 import React from 'react';
 import {
     LineChart,
@@ -84,7 +83,7 @@ export const AgeChartExample: React.FC<AgeChartProps> = ({ data, day }) => {
         <Card
             title={<Title>Возраст клиентов, статистика за {day}</Title>}
             style={{ height: 500 }}
-            className="text-center w-[100%] my-5"
+            className="text-center my-5"
         >
             <ResponsiveContainer width="100%" height={400}>
                 <LineChart

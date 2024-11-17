@@ -6,7 +6,7 @@ export const AdminMonthStatistic = () => {
     return (
         <div>
             <Header />
-            <div className="flex flex-col justify-center items-center">
+            <div className="md:flex md:flex-col md:justify-center md:items-center">
                 <Month />
                 <Attendance />
             </div>

@@ -41,7 +41,7 @@ const AdminCount = () => {
                 setIsOneDay={setIsOneDay}
                 setDayFromTo={setDayFromTo}
             />
-            <FlexBox cls="flex">
+            <div className="flex flex-col xl:flex-row">
                 <SexChart
                     count={[data.male_count, data.female_count]}
                     data={[data?.male_percentage, data?.female_percentage]}
@@ -49,7 +49,7 @@ const AdminCount = () => {
                 <ClientTypeChart
                     data={[data.regular_clients, data.new_clients]}
                 />
-            </FlexBox>
+            </div>
             <div className="flex justify-between">
                 <div className="flex-col w-full">
                     <PeakHours day={day} data={data?.peak_attendance} />

@@ -1,7 +1,7 @@
 import { useGetMonthDataQuery } from '@/entities/home/api';
-import { useAppSelector } from '@/shared';
+import { useAppSelector, Card, Title } from '@/shared';
 import { Chart } from './chart';
-import { Card, Spin } from 'antd';
+import { Spin } from 'antd';
 
 const Month = () => {
     const { homeMonthData } = useAppSelector();
@@ -17,11 +17,9 @@ const Month = () => {
         );
     } else if (!isLoading && data) {
         return (
-            <Card className="flex flex-col w-[90%] text-center mt-5">
-                <span className="text-[16px] text-[#645e5e] font-semibold whitespace-nowrap">
-                    Средний % за месяц
-                </span>
-                <div className="mt-4 w-full">
+            <Card className="flex flex-col w-full text-center mt-5">
+                <Title>Средний % за месяц</Title>
+                <div className="md:mt-4 w-full">
                     <Chart datasets={data?.data} />
                 </div>
             </Card>

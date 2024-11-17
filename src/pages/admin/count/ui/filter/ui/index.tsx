@@ -29,17 +29,17 @@ export const Filter = ({ setDay, setIsOneDay, setDayFromTo }: Props) => {
                 />
                 Статистика
             </h2>
-            <div className="flex">
+            <div className="flex flex-col lg:flex-row gap-1">
                 <DatePicker
                     allowClear={false}
                     placeholder="Выберите день"
                     onChange={onChange}
-                    style={{ width: '160px' }}
+                    className="w-[220px]"
                 />
                 <RangePicker
                     showTime={{ format: 'HH:mm' }}
                     format="YYYY-MM-DD HH:mm"
-                    className="ml-3"
+                    className="lg:ml-3"
                     onChange={(_, dateString) => {
                         if (!dateString[0]) {
                             setIsOneDay(true);

@@ -11,7 +11,7 @@ const StyledCard = styled(CardA)`
     @media (max-width: 640px) {
         /* sm */
         margin: 8px 0px;
-        padding: 0;
+        padding: 8px 0px;
     }
 
     @media (min-width: 641px) and (max-width: 768px) {
@@ -34,7 +34,18 @@ const StyledCard = styled(CardA)`
 `;
 
 const Card: FC<CardProps> = memo(({ children, ...props }) => {
-    return <StyledCard {...props}>{children}</StyledCard>;
+    return (
+        <StyledCard
+            styles={{
+                body: {
+                    padding: 0, // Убираем отступы
+                },
+            }}
+            {...props}
+        >
+            {children}
+        </StyledCard>
+    );
 });
 
 export { Card };

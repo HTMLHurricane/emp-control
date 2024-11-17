@@ -1,6 +1,6 @@
 import { useGetAttendanceDataQuery } from '@/entities/home/api';
-import { FlexBox, useAppSelector } from '@/shared';
-import { Card, Select, Spin } from 'antd';
+import { useAppSelector, Card } from '@/shared';
+import { Select, Spin } from 'antd';
 import { useState } from 'react';
 import { AttendanceChart } from './chart';
 
@@ -24,20 +24,18 @@ const Attendance = () => {
         );
     } else {
         return (
-            <Card className="flex-col flex-1 text-center w-[90%] mt-4">
-                <FlexBox cls="w-full justify-between">
+            <Card className="flex-col flex-1 text-center w-full mt-5">
+                <div className="lg:flex w-full justify-between">
                     <span className="text-[16px] text-[#645e5e] font-semibold whitespace-nowrap">
                         Посещаемость за {homeMonthData.format('YYYY-MM')}
                     </span>
-                    <FlexBox>
-                        <Select
-                            options={statusesOptions}
-                            value={selectedStatus}
-                            onSelect={(e) => setSelectedStatus(e)}
-                            style={{ width: '100%' }}
-                        />
-                    </FlexBox>
-                </FlexBox>
+                    <Select
+                        options={statusesOptions}
+                        value={selectedStatus}
+                        onSelect={(e) => setSelectedStatus(e)}
+                        className="mt-2 md:mt-0"
+                    />
+                </div>
                 <AttendanceChart
                     data={data?.data}
                     selectedStatus={selectedStatus}
