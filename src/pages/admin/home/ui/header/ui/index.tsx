@@ -28,8 +28,8 @@ export const Header = () => {
 
     return (
         <div className="flex justify-between items-center md:px-4">
-            <h2>Главная</h2>
-            <div className="">
+            <h2 className='header_title'>Главная</h2>
+            <div>
                 <DatePicker
                     allowClear={false}
                     onChange={onChange}

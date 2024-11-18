@@ -32,7 +32,7 @@ const AdminEmployeePageHead = () => {
 
     return (
         <div className="flex justify-between items-center">
-            <h2>
+            <h2 className='header_title'>
                 <FaArrowLeft
                     size={15}
                     className="mr-4 cursor-pointer hover:text-blue-300 duration-150"
