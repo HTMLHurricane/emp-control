@@ -4,7 +4,6 @@ import { Spin } from 'antd';
 import { useEffect, useState } from 'react';
 import { SexChart } from './pie/ui';
 import { ClientTypeChart } from './ClientTypeChart';
-import { FlexBox } from '@/shared';
 import { PeakHours } from './PeakHoursChart/ui/PeakHours';
 import { AgeChartExample } from './AgeChart/ui/AgeChart';
 

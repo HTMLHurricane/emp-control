@@ -3,7 +3,7 @@ import {
     useGetAllSchedulesQuery,
 } from '@/entities/schedule/api';
 import { ISchedule, IScheduleDay } from '@/entities/schedule/model/types';
-import { DeleteButton, EditButton, FlexBox, useAppActions } from '@/shared';
+import { DeleteButton, EditButton, useAppActions } from '@/shared';
 import { columnResponseText } from '@/shared/const/css';
 import { Table, TableProps, message } from 'antd';
 import { useEffect, useState } from 'react';

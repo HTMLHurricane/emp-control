@@ -3,7 +3,7 @@ import { Button, Modal, Table, TableProps } from 'antd';
 import { useGetNotComeDataQuery } from '../../api';
 import { IEmployee } from '@/entities/employee/model/types';
 import { useNavigate } from 'react-router-dom';
-import { columnResponseText } from '@/shared/const/css'
+import { columnResponseText } from '@/shared/const/css';
 
 const columns: TableProps<IEmployee>['columns'] = [
     {
@@ -28,27 +28,30 @@ const columns: TableProps<IEmployee>['columns'] = [
         dataIndex: 'schedule',
         render: (el) => el.time_in.slice(0, 5),
         className: `${columnResponseText}`,
+        responsive: ['lg', 'xl'],
     },
     {
         title: 'Время отъезда',
         dataIndex: 'schedule',
         render: (el) => el.time_out.slice(0, 5),
         className: `${columnResponseText}`,
+        responsive: ['lg', 'xl'],
     },
     {
         title: 'Телефон',
         dataIndex: 'phone',
         className: `${columnResponseText}`,
-    }, 
+        responsive: ['md', 'lg', 'xl'],
+    },
 ];
 
 const NotComeModal = () => {
     const { setIsNotComeModal } = useAppActions();
-    const { isNotComeModal, homeDate, doughnutBranch } = useAppSelector();
+    const { isNotComeModal, homeDate, branch } = useAppSelector();
     const navigate = useNavigate();
     const { data } = useGetNotComeDataQuery({
         day: homeDate.format('YYYY-MM-DD'),
-        branch: doughnutBranch,
+        branch: branch,
         limit: 100,
     });
 

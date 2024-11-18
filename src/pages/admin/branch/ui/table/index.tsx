@@ -6,7 +6,6 @@ import { IBranch } from '@/entities/branch/model/types';
 import {
     DeleteButton,
     EditButton,
-    FlexBox,
     useAppActions,
     useAppSelector,
 } from '@/shared';
