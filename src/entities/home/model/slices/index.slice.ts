@@ -3,7 +3,7 @@ import { IHomeSliceInitState } from '../types';
 import dayjs from 'dayjs';
 
 const initialState: IHomeSliceInitState = {
-    collapsed: false,
+    collapsed: true,
     homeDate: dayjs(),
     homeMonthData: dayjs(),
     branch: undefined,
